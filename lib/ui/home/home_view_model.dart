@@ -15,6 +15,9 @@ class HomeViewModel extends AppBaseViewModel{
   void getCategoryByName(String category) {
       repository.getMealByCategory(category).then((value) => {
         print(value)
+      }).catchError((onError) {
+        setError(onError);
+        print(onError);
       });
   }
 }

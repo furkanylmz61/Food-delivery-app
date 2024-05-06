@@ -12,7 +12,11 @@ class HomeView extends StatelessWidget{
         onViewModelReady: (model) => model.init(),
         disposeViewModel: false,
         builder: (context, model,child) => 
-        model.categories == null ? Center(child: CircularProgressIndicator()): ListView.builder(
+        model.hasError
+        ? Center(child: Text(model.modelError)) 
+        : model.categories == null 
+        ? Center(child: CircularProgressIndicator())
+        : ListView.builder(
           itemCount: model.categories!.length,
           itemBuilder: (context, index){
             return ListTile(
