@@ -6,6 +6,5 @@ final getIt = GetIt.instance;
 
 void setupDI() {
   getIt.registerLazySingleton(() => AppBaseViewModel());
-
   getIt.registerLazySingleton(() => NavigationService());
 }

@@ -10,17 +10,28 @@ class MainView extends StatelessWidget{
   Widget build(BuildContext context) {
     return ViewModelBuilder<MainViewModel>.reactive(
       viewModelBuilder: () => MainViewModel(),
-      onViewModelReady: (viewModel) => viewModel.initialise(),
+      disposeViewModel: false,
       builder: (context, viewModel,child) =>  Scaffold(
-      body:  Center(
-        child: Text("App Started"),
-      ),
-      bottomNavigationBar: BottomNavigationBar(items: [
+      body:  getViewForIndex(viewModel.currentTabIndex),
+      bottomNavigationBar: BottomNavigationBar(
+        elevation: 0,
+        type: BottomNavigationBarType.fixed,
+        selectedItemColor: Colors.green,
+        unselectedItemColor: Colors.grey,
+        selectedFontSize: 13,
+        unselectedFontSize: 13,
+        
+        items: [
         createNavItem(TabItem.Home),
         createNavItem(TabItem.Search),
         createNavItem(TabItem.Orders),
         createNavItem(TabItem.Profile)
-      ],),
+      ],
+      onTap: (value){
+        viewModel.setTabIndex(value);
+      },
+      currentIndex: viewModel.currentTabIndex,
+      ),
     ));
   }
 

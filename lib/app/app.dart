@@ -7,8 +7,8 @@ import 'package:stacked/stacked_annotations.dart';
 @StackedApp(
   routes: [
     MaterialRoute(page: SplashView, initial: true),
-    MaterialRoute(page: HomeView),
     MaterialRoute(page: MainView),
+    MaterialRoute(page: HomeView),
     MaterialRoute(page: DetailView)
   ],
 )
