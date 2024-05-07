@@ -19,6 +19,7 @@ dependencies:
 
   #UTILS
   freezed: ^2.5.2
+  animations: ^2.0.11
 
   #STATE_MANAGEMENT
   stacked: ^3.4.2
